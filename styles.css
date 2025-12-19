@@ -1,0 +1,418 @@
+/* Reset e Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #F0F8FF;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #4A90E2 0%, #89CFF0 100%);
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.titulo h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.titulo p {
+    font-size: 1em;
+    opacity: 0.9;
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+    background-color: white;
+    padding: 15px 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    font-size: 0.95em;
+}
+
+.breadcrumbs a {
+    color: #4A90E2;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.breadcrumbs a:hover {
+    color: #2d6ba8;
+    text-decoration: underline;
+}
+
+/* Seções */
+.secao {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.secao.oculto {
+    display: none;
+}
+
+.secao h2 {
+    color: #4A90E2;
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Botão Voltar */
+.btnVoltar {
+    background-color: #89CFF0;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-bottom: 20px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btnVoltar:hover {
+    background-color: #4A90E2;
+    transform: translateX(-5px);
+}
+
+/* Formulário de Novo Item */
+.novoItem {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.novoItem input[type="text"],
+.novoItem input[type="number"],
+.novoItem textarea {
+    padding: 12px;
+    font-size: 1em;
+    border: 2px solid #B3D9FF;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+    font-family: inherit;
+}
+
+.novoItem input[type="text"]:focus,
+.novoItem input[type="number"]:focus,
+.novoItem textarea:focus {
+    outline: none;
+    border-color: #4A90E2;
+}
+
+.novoItem input[type="text"],
+.novoItem input[type="number"] {
+    flex: 1;
+    min-width: 200px;
+}
+
+.novoItem textarea {
+    flex: 1 1 100%;
+    min-height: 100px;
+    resize: vertical;
+}
+
+.novoItem button {
+    background-color: #4A90E2;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.novoItem button:hover {
+    background-color: #2d6ba8;
+    transform: scale(1.05);
+}
+
+/* Lista de Cards */
+.lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Cards */
+.card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #B3D9FF;
+    padding-bottom: 10px;
+}
+
+.cardHeader h3 {
+    color: #4A90E2;
+    font-size: 1.3em;
+    flex: 1;
+}
+
+.acoes {
+    display: flex;
+    gap: 8px;
+}
+
+.btnEditar,
+.btnDeletar {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btnEditar:hover {
+    background-color: #B3D9FF;
+}
+
+.btnDeletar:hover {
+    background-color: #ffcccc;
+}
+
+.cardBody {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.dataInfo {
+    font-size: 0.85em;
+    color: #666;
+    font-style: italic;
+}
+
+.anoInfo {
+    font-size: 0.95em;
+    color: #4A90E2;
+    font-weight: bold;
+}
+
+.btnAcessar {
+    background-color: #89CFF0;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 10px;
+}
+
+.btnAcessar:hover {
+    background-color: #4A90E2;
+    transform: translateX(5px);
+}
+
+/* Card de Letra */
+.cardLetra {
+    grid-column: span 1;
+}
+
+.letraConteudo {
+    background-color: #F0F8FF;
+    padding: 15px;
+    border-radius: 5px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+    color: #333;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    max-height: 150px;
+    overflow: hidden;
+    border-left: 4px solid #4A90E2;
+}
+
+.btnExpandir {
+    background-color: #B3D9FF;
+    color: #333;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.btnExpandir:hover {
+    background-color: #89CFF0;
+    color: white;
+}
+
+/* Mensagem Vazia */
+.mensagemVazia {
+    text-align: center;
+    padding: 40px;
+    color: #999;
+    font-style: italic;
+    font-size: 1.1em;
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modalConteudo {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.modalLetraCompleta {
+    max-width: 800px;
+}
+
+.modalConteudo h3 {
+    color: #4A90E2;
+    margin-bottom: 20px;
+}
+
+.modalConteudo label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: bold;
+}
+
+.modalConteudo input[type="text"],
+.modalConteudo textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    border: 2px solid #B3D9FF;
+    border-radius: 5px;
+    font-family: inherit;
+}
+
+.modalConteudo textarea {
+    resize: vertical;
+    min-height: 200px;
+    font-family: 'Courier New', monospace;
+}
+
+.modalAcoes {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.modalAcoes button,
+.modalConteudo > button {
+    background-color: #4A90E2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.modalAcoes button:hover,
+.modalConteudo > button:hover {
+    background-color: #2d6ba8;
+}
+
+.modalAcoes button:last-child {
+    background-color: #999;
+}
+
+.modalAcoes button:last-child:hover {
+    background-color: #666;
+}
+
+.letraCompleta {
+    background-color: #F0F8FF;
+    padding: 20px;
+    border-radius: 5px;
+    font-family: 'Courier New', monospace;
+    font-size: 1em;
+    color: #333;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    border-left: 4px solid #4A90E2;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .titulo h1 {
+        font-size: 2em;
+    }
+    
+    .lista {
+        grid-template-columns: 1fr;
+    }
+    
+    .novoItem {
+        flex-direction: column;
+    }
+    
+    .novoItem input[type="text"],
+    .novoItem input[type="number"] {
+        width: 100%;
+    }
+}

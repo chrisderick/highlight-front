@@ -1,0 +1,36 @@
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependências (caso use no futuro)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Build/Deploy
+dist/
+build/
+*.map
+
+# Temporários
+*.tmp
+*.temp
+*~
+
+# Ambiente
+.env
+.env.local
+.env.*.local

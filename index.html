@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highlight</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="titulo">
+            <h1>Highlight</h1>
+            <p>Gerenciador de Artistas, Músicas e Letras</p>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs">
+        <span id="breadcrumb"></span>
+    </nav>
+
+    <!-- Seção: Artistas -->
+    <section id="secaoArtistas" class="secao">
+        <h2>Artistas</h2>
+        
+        <div class="novoItem">
+            <input type="text" id="nomeArtista" placeholder="Nome do artista">
+            <button onclick="adicionarArtista()">Adicionar Artista</button>
+        </div>
+
+        <div id="listaArtistas" class="lista"></div>
+    </section>
+
+    <!-- Seção: Músicas -->
+    <section id="secaoMusicas" class="secao oculto">
+        <h2>Músicas de <span id="nomeArtistaAtual"></span></h2>
+        
+        <button class="btnVoltar" onclick="voltarParaArtistas()">← Voltar para Artistas</button>
+
+        <div class="novoItem">
+            <input type="text" id="tituloMusica" placeholder="Título da música">
+            <input type="number" id="anoLancamento" placeholder="Ano de lançamento (opcional)">
+            <button onclick="adicionarMusica()">Adicionar Música</button>
+        </div>
+
+        <div id="listaMusicas" class="lista"></div>
+    </section>
+
+    <!-- Seção: Letras -->
+    <section id="secaoLetras" class="secao oculto">
+        <h2>Letras de <span id="tituloMusicaAtual"></span></h2>
+        
+        <button class="btnVoltar" onclick="voltarParaMusicas()">← Voltar para Músicas</button>
+
+        <div class="novoItem">
+            <input type="text" id="idiomaLetra" placeholder="Idioma (ex: Português, Inglês)">
+            <textarea id="conteudoLetra" placeholder="Conteúdo da letra" rows="5"></textarea>
+            <button onclick="adicionarLetra()">Adicionar Letra</button>
+        </div>
+
+        <div id="listaLetras" class="lista"></div>
+    </section>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>
