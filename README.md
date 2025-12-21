@@ -26,10 +26,7 @@ A navegação é hierárquica: Artistas → Músicas → Letras, com persistênc
 
 2) Abra o arquivo `index.html` diretamente no navegador:
    - Duplo clique no arquivo, OU
-   - Arraste para o navegador, OU
-   - Use um servidor local (opcional):
-     - Com Python: `python -m http.server 8000`
-     - Com Node.js: `npx serve`
+   - Arraste para o navegador
 
 3) A interface será carregada exibindo a lista de artistas.
 
@@ -48,9 +45,6 @@ const API_URL = 'http://127.0.0.1:5000'; // Altere aqui
 - ✅ Persistência de navegação via URL (permite copiar/compartilhar links)
 - ✅ Modais para edição e visualização de letras completas
 - ✅ Confirmações antes de operações destrutivas
-- ✅ Validações de formulário
-- ✅ Design responsivo
-- ✅ Paleta azul-bebê
 
 ## Observações
 
