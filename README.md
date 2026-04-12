@@ -10,17 +10,6 @@ Front-end SPA do projeto Highlight, construído com Angular + Angular Material.
 - Docker (multi-stage build)
 - Nginx (servidor estático + fallback para rotas SPA)
 
-## O que mudou nesta versão
-
-- Migração do front/protótipo antigo (HTML/CSS/JS puro) para Angular.
-- Rotas por caminho:
-  - `/artistas`
-  - `/artistas/:artistaId/musicas`
-  - `/artistas/:artistaId/musicas/:musicaId/letras`
-- Substituição de `alert()` por toast/notificação com `MatSnackBar`.
-- Edição de artista em modal (MatDialog).
-- Ajustes na tela de letras.
-
 ## Pré-requisitos
 
 - Node.js 22+
