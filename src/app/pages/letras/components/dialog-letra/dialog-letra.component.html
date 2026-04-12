@@ -1,0 +1,7 @@
+<app-dialog-padrao [titulo]="obterTitulo()" [mostrarBotaoFechar]="true">
+  <pre class="conteudoLetra">{{ dados.conteudo }}</pre>
+
+  <div slotAcoes>
+    <button mat-flat-button color="primary" type="button" (click)="fechar()">Fechar</button>
+  </div>
+</app-dialog-padrao>

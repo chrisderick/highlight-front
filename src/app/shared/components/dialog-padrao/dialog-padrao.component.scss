@@ -1,0 +1,30 @@
+.cabecalhoDialogo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  margin: 0;
+}
+
+.cabecalhoDialogo span {
+  margin: 0;
+  color: var(--cor-primaria-escura);
+  font-size: 1.25rem;
+  line-height: 1.25;
+}
+
+.conteudoDialogo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  overflow: visible;
+}
+
+.acoesDialogo {
+  padding-top: 0.5rem;
+}
+
+.acoesProjetadas {
+  display: flex;
+  gap: 0.55rem;
+}

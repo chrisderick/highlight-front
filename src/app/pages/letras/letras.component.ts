@@ -10,8 +10,8 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { firstValueFrom } from 'rxjs';
 
 import { DialogConfirmacaoComponent } from '../../shared/components/dialog-confirmacao/dialog-confirmacao.component';
-import { DialogLetraComponent } from '../../shared/components/dialog-letra/dialog-letra.component';
-import { DialogLetraCompletaComponent } from '../../shared/components/dialog-letra-completa/dialog-letra-completa.component';
+import { DialogEdicaoLetraComponent } from './components/dialog-edicao-letra/dialog-edicao-letra.component';
+import { DialogLetraComponent } from './components/dialog-letra/dialog-letra.component';
 import { DataHoraBrPipe } from '../../shared/pipes/data-hora-br.pipe';
 import { Artista } from '../../data/model/artista.model';
 import { Letra } from '../../data/model/letra.model';
@@ -81,7 +81,8 @@ export class LetrasComponent {
 
     const resultado = await firstValueFrom(
       this.dialog
-        .open(DialogLetraComponent, {
+        .open(DialogEdicaoLetraComponent, {
+          width: '760px',
           maxWidth: '95vw',
           data: {
             titulo: 'Adicionar letra ou tradução',
@@ -120,7 +121,8 @@ export class LetrasComponent {
 
     const resultado = await firstValueFrom(
       this.dialog
-        .open(DialogLetraComponent, {
+        .open(DialogEdicaoLetraComponent, {
+          width: '760px',
           maxWidth: '95vw',
           data: {
             titulo: 'Editar letra',
@@ -183,8 +185,8 @@ export class LetrasComponent {
     }
   }
 
-  public abrirModalLetraCompleta(letra: Letra): void {
-    this.dialog.open(DialogLetraCompletaComponent, {
+  public abrirModalLetra(letra: Letra): void {
+    this.dialog.open(DialogLetraComponent, {
       width: '860px',
       maxWidth: '95vw',
       data: {

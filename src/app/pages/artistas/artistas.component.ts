@@ -8,7 +8,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { RouterLink } from '@angular/router';
 import { firstValueFrom } from 'rxjs';
 
-import { DialogArtistaComponent } from '../../shared/components/dialog-artista/dialog-artista.component';
+import { DialogArtistaComponent } from './components/dialog-artista/dialog-artista.component';
 import { DialogConfirmacaoComponent } from '../../shared/components/dialog-confirmacao/dialog-confirmacao.component';
 import { DataHoraBrPipe } from '../../shared/pipes/data-hora-br.pipe';
 import { Artista } from '../../data/model/artista.model';

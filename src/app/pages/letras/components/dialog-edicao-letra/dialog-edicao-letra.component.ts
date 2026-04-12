@@ -1,17 +1,18 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { MAT_DIALOG_DATA, MatDialogContent, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 
-export interface ResultadoDialogLetra {
+import { DialogPadraoComponent } from '../../../../shared/components/dialog-padrao/dialog-padrao.component';
+
+export interface ResultadoDialogEdicaoLetra {
   idioma: string;
   conteudo: string;
 }
 
-export interface DialogLetraData {
+export interface DialogEdicaoLetraData {
   titulo: string;
   textoAcao: string;
   idiomaInicial: string;
@@ -19,18 +20,18 @@ export interface DialogLetraData {
 }
 
 @Component({
-  selector: 'app-dialog-letra',
-  imports: [ReactiveFormsModule, MatDialogContent, MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule],
-  templateUrl: './dialog-letra.component.html',
-  styleUrl: './dialog-letra.component.scss',
+  selector: 'app-dialog-edicao-letra',
+  imports: [ReactiveFormsModule, DialogPadraoComponent, MatFormFieldModule, MatInputModule, MatButtonModule],
+  templateUrl: './dialog-edicao-letra.component.html',
+  styleUrl: './dialog-edicao-letra.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DialogLetraComponent {
-  private readonly dialogRef: MatDialogRef<DialogLetraComponent, ResultadoDialogLetra> = inject(
-    MatDialogRef<DialogLetraComponent, ResultadoDialogLetra>
+export class DialogEdicaoLetraComponent {
+  private readonly dialogRef: MatDialogRef<DialogEdicaoLetraComponent, ResultadoDialogEdicaoLetra> = inject(
+    MatDialogRef<DialogEdicaoLetraComponent, ResultadoDialogEdicaoLetra>
   );
 
-  public readonly dados: DialogLetraData = inject(MAT_DIALOG_DATA);
+  public readonly dados: DialogEdicaoLetraData = inject(MAT_DIALOG_DATA);
   public readonly idiomaControl = new FormControl<string>(this.dados.idiomaInicial, {
     nonNullable: true,
     validators: [Validators.required, Validators.maxLength(80)]

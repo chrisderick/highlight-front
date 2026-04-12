@@ -1,0 +1,15 @@
+:host {
+  display: block;
+  min-width: min(720px, 92vw);
+  max-width: 92vw;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.campoInteiro {
+  width: 100%;
+}

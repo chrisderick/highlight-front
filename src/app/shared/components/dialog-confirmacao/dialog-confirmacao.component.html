@@ -1,10 +1,8 @@
-<h2 mat-dialog-title>{{ dados.titulo }}</h2>
-
-<mat-dialog-content>
+<app-dialog-padrao [titulo]="dados.titulo">
   <p>{{ dados.mensagem }}</p>
-</mat-dialog-content>
 
-<mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close="false">Cancelar</button>
-  <button mat-flat-button color="warn" [mat-dialog-close]="true">{{ dados.textoConfirmar }}</button>
-</mat-dialog-actions>
+  <div slotAcoes>
+    <button mat-button type="button" (click)="cancelar()">Cancelar</button>
+    <button mat-flat-button color="warn" type="button" (click)="confirmar()">{{ dados.textoConfirmar }}</button>
+  </div>
+</app-dialog-padrao>

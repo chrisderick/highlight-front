@@ -10,7 +10,7 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { firstValueFrom } from 'rxjs';
 
 import { DialogConfirmacaoComponent } from '../../shared/components/dialog-confirmacao/dialog-confirmacao.component';
-import { DialogMusicaComponent } from '../../shared/components/dialog-musica/dialog-musica.component';
+import { DialogMusicaComponent } from './components/dialog-musica/dialog-musica.component';
 import { DataHoraBrPipe } from '../../shared/pipes/data-hora-br.pipe';
 import { Artista } from '../../data/model/artista.model';
 import { CriarMusicaRequest, Musica } from '../../data/model/musica.model';

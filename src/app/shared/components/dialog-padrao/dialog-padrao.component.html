@@ -1,0 +1,19 @@
+<h2 mat-dialog-title class="cabecalhoDialogo">
+  <span>{{ titulo() }}</span>
+
+  @if (mostrarBotaoFechar()) {
+    <button mat-icon-button type="button" aria-label="Fechar modal" [mat-dialog-close]="undefined">
+      <mat-icon>close</mat-icon>
+    </button>
+  }
+</h2>
+
+<mat-dialog-content class="conteudoDialogo">
+  <ng-content />
+</mat-dialog-content>
+
+<mat-dialog-actions [align]="alinhamentoAcoes()" class="acoesDialogo">
+  <div class="acoesProjetadas">
+    <ng-content select="[slotAcoes]" />
+  </div>
+</mat-dialog-actions>

@@ -1,0 +1,14 @@
+<app-dialog-padrao [titulo]="dados.titulo">
+  <mat-form-field appearance="outline" class="campoInteiro">
+    <mat-label>Nome do artista</mat-label>
+    <input matInput [formControl]="nomeControl" maxlength="120" />
+    @if (nomeControl.invalid && nomeControl.touched) {
+      <mat-error>Informe um nome válido.</mat-error>
+    }
+  </mat-form-field>
+
+  <div slotAcoes>
+    <button mat-button type="button" (click)="fechar()">Cancelar</button>
+    <button mat-flat-button color="primary" type="button" (click)="confirmar()">{{ dados.textoAcao }}</button>
+  </div>
+</app-dialog-padrao>

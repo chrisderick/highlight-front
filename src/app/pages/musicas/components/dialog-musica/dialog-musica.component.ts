@@ -1,9 +1,11 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { MAT_DIALOG_DATA, MatDialogActions, MatDialogContent, MatDialogRef, MatDialogTitle } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+
+import { DialogPadraoComponent } from '../../../../shared/components/dialog-padrao/dialog-padrao.component';
 
 export interface ResultadoDialogMusica {
   titulo: string;
@@ -21,9 +23,7 @@ export interface DialogMusicaData {
   selector: 'app-dialog-musica',
   imports: [
     ReactiveFormsModule,
-    MatDialogTitle,
-    MatDialogContent,
-    MatDialogActions,
+    DialogPadraoComponent,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule
