@@ -13,6 +13,7 @@ import { DialogConfirmacaoComponent } from '../../shared/components/dialog-confi
 import { DataHoraBrPipe } from '../../shared/pipes/data-hora-br.pipe';
 import { Artista } from '../../data/model/artista.model';
 import { ArtistasService } from '../../data/services/artistas.service';
+import { ImagemArtistaService } from '../../data/services/imagem-artista.service';
 import { NotificacaoService } from '../../core/services/notificacao.service';
 
 @Component({
@@ -31,11 +32,14 @@ import { NotificacaoService } from '../../core/services/notificacao.service';
 })
 export class ArtistasComponent {
   private readonly artistasService: ArtistasService = inject(ArtistasService);
+  private readonly imagemArtistaService: ImagemArtistaService = inject(ImagemArtistaService);
   private readonly dialog: MatDialog = inject(MatDialog);
   private readonly notificacaoService: NotificacaoService = inject(NotificacaoService);
 
   public readonly carregando = signal<boolean>(false);
   public readonly artistas = signal<Artista[]>([]);
+  public readonly carregandoImagemPorArtista = signal<Record<number, boolean>>({});
+  public readonly imagemPorArtista = signal<Record<number, string>>({});
 
   public constructor() {
     void this.carregarArtistas();
@@ -127,6 +131,42 @@ export class ArtistasComponent {
       await this.carregarArtistas();
     } catch (erro) {
       this.notificacaoService.erro(this.obterMensagemErro(erro, 'Erro ao deletar artista.'));
+    }
+  }
+
+  public obterUrlImagemArtista(artistaId: number): string | null {
+    return this.imagemPorArtista()[artistaId] ?? null;
+  }
+
+  public estaCarregandoImagem(artistaId: number): boolean {
+    return this.carregandoImagemPorArtista()[artistaId] ?? false;
+  }
+
+  public async buscarImagemArtista(artista: Artista): Promise<void> {
+    this.carregandoImagemPorArtista.update((estadoAtual) => ({
+      ...estadoAtual,
+      [artista.id]: true
+    }));
+
+    try {
+      const urlImagem = await firstValueFrom(this.imagemArtistaService.buscarUrlImagemArtista(artista.name));
+
+      if (!urlImagem) {
+        this.notificacaoService.erro('Não foi possível obter imagem do artista');
+        return;
+      }
+
+      this.imagemPorArtista.update((estadoAtual) => ({
+        ...estadoAtual,
+        [artista.id]: urlImagem
+      }));
+    } catch {
+      this.notificacaoService.erro('Não foi possível obter imagem do artista');
+    } finally {
+      this.carregandoImagemPorArtista.update((estadoAtual) => ({
+        ...estadoAtual,
+        [artista.id]: false
+      }));
     }
   }
 

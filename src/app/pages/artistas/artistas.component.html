@@ -35,10 +35,34 @@
             </mat-card-header>
 
             <mat-card-content>
+              @if (estaCarregandoImagem(artista.id)) {
+                <div class="blocoImagemArtista blocoImagemCarregando">
+                  <mat-spinner diameter="26"></mat-spinner>
+                </div>
+              } @else {
+                @if (obterUrlImagemArtista(artista.id); as urlImagem) {
+                  <div class="blocoImagemArtista">
+                    <img [src]="urlImagem" [alt]="'Imagem do artista ' + artista.name" />
+                  </div>
+                }
+              }
+
               <p class="textoSuporte">Cadastrado em: {{ artista.created_at | dataHoraBr }}</p>
             </mat-card-content>
 
-            <mat-card-actions>
+            <mat-card-actions class="acoesArtista">
+              <button
+                mat-stroked-button
+                type="button"
+                (click)="buscarImagemArtista(artista)"
+                [disabled]="estaCarregandoImagem(artista.id)"
+              >
+                @if (estaCarregandoImagem(artista.id)) {
+                  Carregando...
+                } @else {
+                  Ver Imagem
+                }
+              </button>
               <a mat-stroked-button [routerLink]="['/artistas', artista.id, 'musicas']">Ver Músicas</a>
             </mat-card-actions>
           </mat-card>
