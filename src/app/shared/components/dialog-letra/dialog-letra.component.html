@@ -1,0 +1,31 @@
+<mat-dialog-content class="conteudoDialogo">
+  <header class="topoDialogo">
+    <h2>{{ dados.titulo }}</h2>
+    <button mat-icon-button type="button" aria-label="Fechar modal" (click)="fechar()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </header>
+
+  <form class="formulario" (submit)="$event.preventDefault(); confirmar()">
+    <mat-form-field appearance="outline" class="campoInteiro">
+      <mat-label>Idioma</mat-label>
+      <input matInput [formControl]="idiomaControl" maxlength="80" />
+      @if (idiomaControl.invalid && idiomaControl.touched) {
+        <mat-error>Informe o idioma da letra.</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="campoInteiro">
+      <mat-label>Conteúdo da letra</mat-label>
+      <textarea matInput rows="11" [formControl]="conteudoControl" maxlength="20000"></textarea>
+      @if (conteudoControl.invalid && conteudoControl.touched) {
+        <mat-error>Informe o conteúdo da letra.</mat-error>
+      }
+    </mat-form-field>
+
+    <div class="acoes">
+      <button mat-button type="button" (click)="fechar()">Cancelar</button>
+      <button mat-flat-button color="primary" type="submit">{{ dados.textoAcao }}</button>
+    </div>
+  </form>
+</mat-dialog-content>

@@ -1,0 +1,62 @@
+<nav class="breadcrumbs">
+  <a routerLink="/artistas">Artistas</a>
+  <span>›</span>
+  <a [routerLink]="montarLinkVolta()">{{ artistaAtual()?.name || 'Músicas' }}</a>
+  <span>›</span>
+  <span>{{ musicaAtual()?.title || 'Letras' }}</span>
+</nav>
+
+<section class="secaoPagina">
+  <header class="cabecalhoSecao">
+    <div class="tituloComVoltar">
+      <a mat-stroked-button [routerLink]="montarLinkVolta()">Voltar para Músicas</a>
+      <h2>Letras de {{ musicaAtual()?.title }}</h2>
+    </div>
+  </header>
+
+  @if (carregando()) {
+    <div class="blocoCarregamento">
+      <mat-spinner diameter="38"></mat-spinner>
+    </div>
+  } @else {
+    <div class="gradeCards gradeLetras">
+      <button class="cartaoAdicionarLetra" type="button" (click)="abrirModalAdicionarLetra()">
+        <mat-icon>add_circle</mat-icon>
+        <span>Adicionar Letra</span>
+        <small>Adicionar nova letra/tradução</small>
+      </button>
+
+      @for (letra of letras(); track letra.id) {
+        <mat-card class="cartaoEntidade cartaoLetra">
+          <mat-card-header>
+            <mat-card-title>{{ letra.language }}</mat-card-title>
+            <div class="acoesCartao">
+              <button mat-icon-button type="button" aria-label="Editar letra" (click)="abrirModalEditarLetra(letra)">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button type="button" aria-label="Deletar letra" (click)="confirmarExclusaoLetra(letra)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          </mat-card-header>
+
+          <mat-card-content>
+            <pre class="previewLetra">{{ obterConteudoResumido(letra.content) }}</pre>
+            <p class="textoSuporte">Criado em: {{ letra.created_at | dataHoraBr }}</p>
+            @if (letra.updated_at) {
+              <p class="textoSuporte">Atualizado em: {{ letra.updated_at | dataHoraBr }}</p>
+            }
+          </mat-card-content>
+
+          <mat-card-actions>
+            <button mat-stroked-button type="button" (click)="abrirModalLetraCompleta(letra)">Ver letra completa</button>
+          </mat-card-actions>
+        </mat-card>
+      }
+    </div>
+
+    @if (letras().length === 0) {
+      <p class="mensagemVazia">Nenhuma letra cadastrada para esta música.</p>
+    }
+  }
+</section>

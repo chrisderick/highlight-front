@@ -1,0 +1,43 @@
+:host {
+	display: block;
+	min-height: 100dvh;
+}
+
+.estruturaApp {
+	min-height: 100dvh;
+	background: radial-gradient(circle at top right, rgba(137, 207, 240, 0.35), transparent 45%),
+		radial-gradient(circle at 15% 20%, rgba(74, 144, 226, 0.15), transparent 30%),
+		var(--cor-fundo);
+}
+
+.cabecalho {
+	position: sticky;
+	top: 0;
+	z-index: 50;
+	background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-secundaria) 100%);
+	color: #fff;
+	box-shadow: 0 8px 24px rgba(24, 66, 112, 0.2);
+}
+
+.cabecalhoConteudo {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 1.5rem 1rem;
+}
+
+.cabecalhoConteudo h1 {
+	margin: 0;
+	font-size: clamp(1.75rem, 2.5vw, 2.35rem);
+	line-height: 1.2;
+}
+
+.cabecalhoConteudo p {
+	margin: 0.25rem 0 0;
+	opacity: 0.92;
+}
+
+.conteudoPagina {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 1rem;
+}

@@ -1,0 +1,75 @@
+.tituloComVoltar {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+}
+
+.tituloComVoltar h2 {
+  margin: 0;
+}
+
+.gradeLetras {
+  align-items: start;
+}
+
+.cartaoAdicionarLetra {
+  min-height: 196px;
+  border-radius: 1rem;
+  border: 2px dashed rgba(74, 144, 226, 0.38);
+  background: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.55rem;
+  color: var(--cor-primaria-escura);
+  text-align: left;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cartaoAdicionarLetra:hover {
+  transform: translateY(-4px);
+  border-color: var(--cor-primaria);
+  box-shadow: 0 10px 24px rgba(29, 89, 153, 0.2);
+}
+
+.cartaoAdicionarLetra mat-icon {
+  font-size: 2rem;
+  width: 2rem;
+  height: 2rem;
+}
+
+.cartaoAdicionarLetra span {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.cartaoAdicionarLetra small {
+  font-size: 0.87rem;
+  opacity: 0.85;
+}
+
+.cartaoLetra .mat-mdc-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.previewLetra {
+  margin: 0;
+  white-space: pre-wrap;
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  background: rgba(74, 144, 226, 0.08);
+  border-radius: 0.7rem;
+  padding: 0.9rem;
+  line-height: 1.5;
+}
+
+.acoesCartao {
+  margin-left: auto;
+  display: flex;
+  gap: 0.25rem;
+}

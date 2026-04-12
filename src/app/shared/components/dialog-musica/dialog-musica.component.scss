@@ -1,0 +1,9 @@
+.conteudo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.campoInteiro {
+  width: min(460px, 100%);
+}

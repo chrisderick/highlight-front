@@ -1,0 +1,11 @@
+.conteudoLetra {
+  margin: 0;
+  white-space: pre-wrap;
+  line-height: 1.55;
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  max-height: 65dvh;
+  overflow-y: auto;
+  background: rgba(74, 144, 226, 0.08);
+  border-radius: 0.75rem;
+  padding: 1rem;
+}

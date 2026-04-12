@@ -1,0 +1,49 @@
+<nav class="breadcrumbs">
+  <span>Artistas</span>
+</nav>
+
+<section class="secaoPagina">
+  <header class="cabecalhoSecao">
+    <h2>Artistas</h2>
+    <button mat-flat-button color="primary" type="button" (click)="abrirModalCriarArtista()">
+      <mat-icon>add</mat-icon>
+      Adicionar Artista
+    </button>
+  </header>
+
+  @if (carregando()) {
+    <div class="blocoCarregamento">
+      <mat-spinner diameter="38"></mat-spinner>
+    </div>
+  } @else {
+    @if (artistas().length === 0) {
+      <p class="mensagemVazia">Nenhum artista cadastrado.</p>
+    } @else {
+      <div class="gradeCards">
+        @for (artista of artistas(); track artista.id) {
+          <mat-card class="cartaoEntidade">
+            <mat-card-header>
+              <mat-card-title>{{ artista.name }}</mat-card-title>
+              <div class="acoesCartao">
+                <button mat-icon-button type="button" aria-label="Editar artista" (click)="abrirModalEditarArtista(artista)">
+                  <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button type="button" aria-label="Deletar artista" (click)="confirmarExclusaoArtista(artista)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+            </mat-card-header>
+
+            <mat-card-content>
+              <p class="textoSuporte">Cadastrado em: {{ artista.created_at | dataHoraBr }}</p>
+            </mat-card-content>
+
+            <mat-card-actions>
+              <a mat-stroked-button [routerLink]="['/artistas', artista.id, 'musicas']">Ver Músicas</a>
+            </mat-card-actions>
+          </mat-card>
+        }
+      </div>
+    }
+  }
+</section>

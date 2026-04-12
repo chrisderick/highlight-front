@@ -1,0 +1,16 @@
+.tituloComVoltar {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+}
+
+.tituloComVoltar h2 {
+  margin: 0;
+}
+
+.acoesCartao {
+  margin-left: auto;
+  display: flex;
+  gap: 0.25rem;
+}

@@ -1,54 +1,93 @@
 # Highlight Front
 
-Interface web simples para gerenciar artistas, músicas e letras através da API Highlight.
-
-Estrutura:
-- **Artistas**: Listagem, criação, edição e remoção de artistas.
-- **Músicas**: Gerenciamento de músicas por artista (título, ano de lançamento).
-- **Letras**: Gerenciamento de letras por música (idioma, conteúdo).
-
-A navegação é hierárquica: Artistas → Músicas → Letras, com persistência de estado via query parameters na URL.
-
-## Requisitos
-
-- Navegador moderno (Chrome, Firefox, Edge, Safari)
-- API Highlight rodando em `http://127.0.0.1:5000`
+Front-end SPA do projeto Highlight, construído com Angular + Angular Material.
 
 ## Tecnologias
 
-- HTML5
-- CSS3 (sem frameworks)
-- JavaScript vanilla (sem bibliotecas)
+- Angular 21 (standalone components + Angular Router)
+- Angular Material (dialogs, cards, snackbar/toast, botões)
+- SCSS
+- Docker (multi-stage build)
+- Nginx (servidor estático + fallback para rotas SPA)
 
-## Como rodar
+## O que mudou nesta versão
 
-1) Certifique-se de que a API Highlight está rodando em `http://127.0.0.1:5000`
+- Migração do front/protótipo antigo (HTML/CSS/JS puro) para Angular.
+- Rotas por caminho:
+  - `/artistas`
+  - `/artistas/:artistaId/musicas`
+  - `/artistas/:artistaId/musicas/:musicaId/letras`
+- Substituição de `alert()` por toast/notificação com `MatSnackBar`.
+- Edição de artista em modal (MatDialog).
+- Ajustes na tela de letras.
 
-2) Abra o arquivo `index.html` diretamente no navegador:
-   - Duplo clique no arquivo, OU
-   - Arraste para o navegador
+## Pré-requisitos
 
-3) A interface será carregada exibindo a lista de artistas.
+- Node.js 22+
+- npm 11+
+- API Highlight rodando (projeto `highlight-api`)
 
-## Configuração
+## Como rodar em desenvolvimento
 
-Se a API estiver rodando em uma URL diferente, edite o arquivo `scripts.js`:
+1. Instale as dependências:
 
-```javascript
-const API_URL = 'http://127.0.0.1:5000'; // Altere aqui
+```bash
+npm install
 ```
 
-## Funcionalidades
+2. Execute o front:
 
-- ✅ CRUD completo de artistas, músicas e letras
-- ✅ Navegação hierárquica com breadcrumbs
-- ✅ Persistência de navegação via URL (permite copiar/compartilhar links)
-- ✅ Modais para edição e visualização de letras completas
-- ✅ Confirmações antes de operações destrutivas
+```bash
+npm start
+```
 
-## Observações
+3. Acesse:
 
-- A interface utiliza apenas HTML, CSS e JavaScript vanilla (sem frameworks ou bibliotecas).
-- Todas as operações são feitas via API REST.
-- O estado da navegação é mantido na URL através de query parameters (`?artist=5&song=12`).
-- Ao deletar um artista ou música, todos os dados relacionados são removidos automaticamente (cascade delete na API).
+- `http://localhost:4200`
+
+## Build de produção
+
+```bash
+npm run build
+```
+
+Saída padrão:
+
+- `dist/highlight-front/browser`
+
+## Docker
+
+### Build da imagem
+
+```bash
+docker build -t highlight-front:latest .
+```
+
+### Executar container
+
+Exemplo para API rodando na máquina host (Windows):
+
+```bash
+docker run --rm -p 8080:80 highlight-front:latest
+```
+
+A aplicação ficará disponível em:
+
+- `http://localhost:8080`
+
+## URL da API
+
+O front está configurado para consumir a API em:
+
+- `http://localhost:5000`
+
+## Integração com a API
+
+A API atual usada pelo front expõe os seguintes recursos:
+
+- Artistas (`/artists`)
+- Músicas (`/artists/{id}/songs` e `/songs/{id}`)
+- Letras (`/songs/{id}/lyrics` e `/lyrics/{id}`)
+
+No projeto `highlight-api`, mantenha a API ativa durante o uso do front.
+

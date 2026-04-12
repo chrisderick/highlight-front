@@ -1,0 +1,24 @@
+<h2 mat-dialog-title>{{ dados.titulo }}</h2>
+
+<mat-dialog-content class="conteudo">
+  <mat-form-field appearance="outline" class="campoInteiro">
+    <mat-label>Título da música</mat-label>
+    <input matInput [formControl]="tituloControl" maxlength="180" />
+    @if (tituloControl.invalid && tituloControl.touched) {
+      <mat-error>Informe um título válido.</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="campoInteiro">
+    <mat-label>Ano de lançamento</mat-label>
+    <input matInput [formControl]="anoControl" maxlength="4" />
+    @if (anoControl.invalid && anoControl.touched) {
+      <mat-error>Informe um ano com até 4 dígitos.</mat-error>
+    }
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button type="button" (click)="fechar()">Cancelar</button>
+  <button mat-flat-button color="primary" type="button" (click)="confirmar()">{{ dados.textoAcao }}</button>
+</mat-dialog-actions>

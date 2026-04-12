@@ -1,0 +1,58 @@
+<nav class="breadcrumbs">
+  <a routerLink="/artistas">Artistas</a>
+  <span>›</span>
+  <span>{{ artistaAtual()?.name || 'Músicas' }}</span>
+</nav>
+
+<section class="secaoPagina">
+  <header class="cabecalhoSecao">
+    <div class="tituloComVoltar">
+      <a mat-stroked-button routerLink="/artistas">Voltar para Artistas</a>
+      <h2>Músicas de {{ artistaAtual()?.name }}</h2>
+    </div>
+
+    <button mat-flat-button color="primary" type="button" (click)="abrirModalCriarMusica()">
+      <mat-icon>add</mat-icon>
+      Adicionar Música
+    </button>
+  </header>
+
+  @if (carregando()) {
+    <div class="blocoCarregamento">
+      <mat-spinner diameter="38"></mat-spinner>
+    </div>
+  } @else {
+    @if (musicas().length === 0) {
+      <p class="mensagemVazia">Nenhuma música cadastrada para este artista.</p>
+    } @else {
+      <div class="gradeCards">
+        @for (musica of musicas(); track trackearPorId($index, musica)) {
+          <mat-card class="cartaoEntidade">
+            <mat-card-header>
+              <mat-card-title>{{ musica.title }}</mat-card-title>
+              <div class="acoesCartao">
+                <button mat-icon-button type="button" aria-label="Editar música" (click)="abrirModalEditarMusica(musica)">
+                  <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button type="button" aria-label="Deletar música" (click)="confirmarExclusaoMusica(musica)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+            </mat-card-header>
+
+            <mat-card-content>
+              @if (musica.release_year) {
+                <p class="textoDestaque">Ano: {{ musica.release_year }}</p>
+              }
+              <p class="textoSuporte">Cadastrado em: {{ musica.created_at | dataHoraBr }}</p>
+            </mat-card-content>
+
+            <mat-card-actions>
+              <a mat-stroked-button [routerLink]="montarLinkLetras(musica.id)">Ver Letras</a>
+            </mat-card-actions>
+          </mat-card>
+        }
+      </div>
+    }
+  }
+</section>

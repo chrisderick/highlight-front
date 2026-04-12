@@ -24,6 +24,9 @@ yarn.lock
 dist/
 build/
 *.map
+.angular/
+out-tsc/
+coverage/
 
 # Temporários
 *.tmp
