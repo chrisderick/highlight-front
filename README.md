@@ -2,6 +2,12 @@
 
 Front-end SPA do projeto Highlight, construído com Angular + Angular Material.
 
+## Arquitetura do sistema
+
+![Fluxograma da aplicação como um todo](assets/fluxograma-highlight.png)
+
+*Legenda: fluxograma da aplicação como um todo.*
+
 ## Tecnologias
 
 - Angular 21 (standalone components + Angular Router)
