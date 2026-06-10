@@ -9,6 +9,7 @@ import { RouterLink } from '@angular/router';
 import { firstValueFrom } from 'rxjs';
 
 import { DialogArtistaComponent } from './components/dialog-artista/dialog-artista.component';
+import { BreadcrumbComponent, BreadcrumbItem } from '../../shared/components/breadcrumb/breadcrumb.component';
 import { DialogConfirmacaoComponent } from '../../shared/components/dialog-confirmacao/dialog-confirmacao.component';
 import { DataHoraBrPipe } from '../../shared/pipes/data-hora-br.pipe';
 import { Artista } from '../../data/model/artista.model';
@@ -24,13 +25,16 @@ import { NotificacaoService } from '../../core/services/notificacao.service';
     MatCardModule,
     MatIconModule,
     MatProgressSpinnerModule,
-    DataHoraBrPipe
+    DataHoraBrPipe,
+    BreadcrumbComponent
   ],
   templateUrl: './artistas.component.html',
   styleUrl: './artistas.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ArtistasComponent {
+  public readonly itensBreadcrumb: readonly BreadcrumbItem[] = [{ label: 'Artistas' }];
+
   private readonly artistasService: ArtistasService = inject(ArtistasService);
   private readonly imagemArtistaService: ImagemArtistaService = inject(ImagemArtistaService);
   private readonly dialog: MatDialog = inject(MatDialog);

@@ -1,0 +1,13 @@
+<nav class="breadcrumbs" aria-label="Navegação estrutural">
+  @for (item of itens(); track $index; let ultimo = $last) {
+    @if (item.link) {
+      <a [routerLink]="item.link">{{ item.label }}</a>
+    } @else {
+      <span [attr.aria-current]="ultimo ? 'page' : null">{{ item.label }}</span>
+    }
+
+    @if (!ultimo) {
+      <span class="separador" aria-hidden="true">&rsaquo;</span>
+    }
+  }
+</nav>

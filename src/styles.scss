@@ -36,27 +36,6 @@ body {
 	box-sizing: border-box;
 }
 
-.breadcrumbs {
-	display: flex;
-	align-items: center;
-	gap: 0.55rem;
-	margin-top: 1rem;
-	border-radius: 0.75rem;
-	padding: 0.75rem 1rem;
-	background: rgba(255, 255, 255, 0.82);
-	box-shadow: 0 8px 20px rgba(27, 67, 108, 0.08);
-	font-size: 0.95rem;
-}
-
-.breadcrumbs a {
-	color: var(--cor-primaria-escura);
-	text-decoration: none;
-}
-
-.breadcrumbs a:hover {
-	text-decoration: underline;
-}
-
 .secaoPagina {
 	margin-top: 1rem;
 }

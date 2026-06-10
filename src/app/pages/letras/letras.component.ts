@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -9,6 +9,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { firstValueFrom } from 'rxjs';
 
+import { BreadcrumbComponent, BreadcrumbItem } from '../../shared/components/breadcrumb/breadcrumb.component';
 import { DialogConfirmacaoComponent } from '../../shared/components/dialog-confirmacao/dialog-confirmacao.component';
 import { DialogEdicaoLetraComponent } from './components/dialog-edicao-letra/dialog-edicao-letra.component';
 import { DialogLetraComponent } from './components/dialog-letra/dialog-letra.component';
@@ -29,7 +30,8 @@ import { NotificacaoService } from '../../core/services/notificacao.service';
     MatCardModule,
     MatIconModule,
     MatProgressSpinnerModule,
-    DataHoraBrPipe
+    DataHoraBrPipe,
+    BreadcrumbComponent
   ],
   templateUrl: './letras.component.html',
   styleUrl: './letras.component.scss',
@@ -48,6 +50,11 @@ export class LetrasComponent {
   public readonly musicaAtual = signal<Musica | null>(null);
   public readonly letras = signal<Letra[]>([]);
   public readonly carregando = signal<boolean>(false);
+  public readonly itensBreadcrumb = computed<readonly BreadcrumbItem[]>(() => [
+    { label: 'Artistas', link: '/artistas' },
+    { label: this.artistaAtual()?.name || 'Músicas', link: this.montarLinkVolta() },
+    { label: this.musicaAtual()?.title || 'Letras' }
+  ]);
 
   private readonly artistaId = signal<number | null>(null);
   private readonly musicaId = signal<number | null>(null);

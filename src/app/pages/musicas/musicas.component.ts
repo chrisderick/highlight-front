@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -9,6 +9,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { firstValueFrom } from 'rxjs';
 
+import { BreadcrumbComponent, BreadcrumbItem } from '../../shared/components/breadcrumb/breadcrumb.component';
 import { DialogConfirmacaoComponent } from '../../shared/components/dialog-confirmacao/dialog-confirmacao.component';
 import { DialogMusicaComponent } from './components/dialog-musica/dialog-musica.component';
 import { DataHoraBrPipe } from '../../shared/pipes/data-hora-br.pipe';
@@ -26,7 +27,8 @@ import { NotificacaoService } from '../../core/services/notificacao.service';
     MatCardModule,
     MatIconModule,
     MatProgressSpinnerModule,
-    DataHoraBrPipe
+    DataHoraBrPipe,
+    BreadcrumbComponent
   ],
   templateUrl: './musicas.component.html',
   styleUrl: './musicas.component.scss',
@@ -43,6 +45,10 @@ export class MusicasComponent {
   public readonly artistaAtual = signal<Artista | null>(null);
   public readonly musicas = signal<Musica[]>([]);
   public readonly carregando = signal<boolean>(false);
+  public readonly itensBreadcrumb = computed<readonly BreadcrumbItem[]>(() => [
+    { label: 'Artistas', link: '/artistas' },
+    { label: this.artistaAtual()?.name || 'Músicas' }
+  ]);
 
   private readonly artistaId = signal<number | null>(null);
 

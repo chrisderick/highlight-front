@@ -1,8 +1,4 @@
-<nav class="breadcrumbs">
-  <a routerLink="/artistas">Artistas</a>
-  <span>›</span>
-  <span>{{ artistaAtual()?.name || 'Músicas' }}</span>
-</nav>
+<app-breadcrumb [itens]="itensBreadcrumb()" />
 
 <section class="secaoPagina">
   <header class="cabecalhoSecao">
