@@ -44,11 +44,17 @@ export class MusicasComponent {
 
   public readonly artistaAtual = signal<Artista | null>(null);
   public readonly musicas = signal<Musica[]>([]);
-  public readonly carregando = signal<boolean>(false);
-  public readonly itensBreadcrumb = computed<readonly BreadcrumbItem[]>(() => [
-    { label: 'Artistas', link: '/artistas' },
-    { label: this.artistaAtual()?.name || 'Músicas' }
-  ]);
+  public readonly carregando = signal<boolean>(true);
+  public readonly itensBreadcrumb = computed<readonly BreadcrumbItem[]>(() => {
+    const artista = this.artistaAtual();
+
+    return artista
+      ? [
+          { label: 'Artistas', link: '/artistas' },
+          { label: artista.name }
+        ]
+      : [];
+  });
 
   private readonly artistaId = signal<number | null>(null);
 

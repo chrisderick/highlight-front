@@ -49,12 +49,19 @@ export class LetrasComponent {
   public readonly artistaAtual = signal<Artista | null>(null);
   public readonly musicaAtual = signal<Musica | null>(null);
   public readonly letras = signal<Letra[]>([]);
-  public readonly carregando = signal<boolean>(false);
-  public readonly itensBreadcrumb = computed<readonly BreadcrumbItem[]>(() => [
-    { label: 'Artistas', link: '/artistas' },
-    { label: this.artistaAtual()?.name || 'Músicas', link: this.montarLinkVolta() },
-    { label: this.musicaAtual()?.title || 'Letras' }
-  ]);
+  public readonly carregando = signal<boolean>(true);
+  public readonly itensBreadcrumb = computed<readonly BreadcrumbItem[]>(() => {
+    const artista = this.artistaAtual();
+    const musica = this.musicaAtual();
+
+    return artista && musica
+      ? [
+          { label: 'Artistas', link: '/artistas' },
+          { label: artista.name, link: this.montarLinkVolta() },
+          { label: musica.title }
+        ]
+      : [];
+  });
 
   private readonly artistaId = signal<number | null>(null);
   private readonly musicaId = signal<number | null>(null);
