@@ -23,7 +23,7 @@
     } @else {
       <div class="gradeCards">
         @for (musica of musicas(); track trackearPorId($index, musica)) {
-          <mat-card class="cartaoEntidade">
+          <app-card-entidade>
             <mat-card-header>
               <mat-card-title>{{ musica.title }}</mat-card-title>
               <div class="acoesCartao">
@@ -46,7 +46,7 @@
             <mat-card-actions>
               <a mat-stroked-button [routerLink]="montarLinkLetras(musica.id)">Ver Letras</a>
             </mat-card-actions>
-          </mat-card>
+          </app-card-entidade>
         }
       </div>
     }

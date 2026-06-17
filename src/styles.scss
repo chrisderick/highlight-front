@@ -61,27 +61,6 @@ body {
 	gap: 1rem;
 }
 
-.cartaoEntidade {
-	border-radius: 1rem;
-	background: var(--cor-card);
-	box-shadow: 0 8px 22px rgba(29, 89, 153, 0.13);
-	transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.cartaoEntidade:hover {
-	transform: translateY(-4px);
-	box-shadow: 0 12px 28px rgba(29, 89, 153, 0.18);
-}
-
-.cartaoEntidade .mat-mdc-card-header {
-	align-items: flex-start;
-}
-
-.cartaoEntidade .mat-mdc-card-title {
-	font-weight: 700;
-	color: var(--cor-primaria-escura);
-}
-
 .textoDestaque {
 	margin: 0;
 	color: var(--cor-primaria-escura);

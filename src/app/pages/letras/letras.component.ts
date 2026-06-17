@@ -10,6 +10,7 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { firstValueFrom } from 'rxjs';
 
 import { BreadcrumbComponent, BreadcrumbItem } from '../../shared/components/breadcrumb/breadcrumb.component';
+import { CardEntidadeComponent } from '../../shared/components/card-entidade/card-entidade.component';
 import { DialogConfirmacaoComponent } from '../../shared/components/dialog-confirmacao/dialog-confirmacao.component';
 import { DialogEdicaoLetraComponent } from './components/dialog-edicao-letra/dialog-edicao-letra.component';
 import { DialogLetraComponent } from './components/dialog-letra/dialog-letra.component';
@@ -31,7 +32,8 @@ import { NotificacaoService } from '../../core/services/notificacao.service';
     MatIconModule,
     MatProgressSpinnerModule,
     DataHoraBrPipe,
-    BreadcrumbComponent
+    BreadcrumbComponent,
+    CardEntidadeComponent
   ],
   templateUrl: './letras.component.html',
   styleUrl: './letras.component.scss',

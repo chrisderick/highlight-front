@@ -10,6 +10,7 @@ import { firstValueFrom } from 'rxjs';
 
 import { DialogArtistaComponent } from './components/dialog-artista/dialog-artista.component';
 import { BreadcrumbComponent, BreadcrumbItem } from '../../shared/components/breadcrumb/breadcrumb.component';
+import { CardEntidadeComponent } from '../../shared/components/card-entidade/card-entidade.component';
 import { DialogConfirmacaoComponent } from '../../shared/components/dialog-confirmacao/dialog-confirmacao.component';
 import { DataHoraBrPipe } from '../../shared/pipes/data-hora-br.pipe';
 import { Artista } from '../../data/model/artista.model';
@@ -26,7 +27,8 @@ import { NotificacaoService } from '../../core/services/notificacao.service';
     MatIconModule,
     MatProgressSpinnerModule,
     DataHoraBrPipe,
-    BreadcrumbComponent
+    BreadcrumbComponent,
+    CardEntidadeComponent
   ],
   templateUrl: './artistas.component.html',
   styleUrl: './artistas.component.scss',
