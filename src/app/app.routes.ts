@@ -23,6 +23,9 @@ export const routes: Routes = [
 	},
 	{
 		path: '**',
-		redirectTo: 'artistas'
+		loadComponent: () =>
+			import('./pages/pagina-nao-encontrada/pagina-nao-encontrada.component').then(
+				(m) => m.PaginaNaoEncontradaComponent
+			)
 	}
 ];

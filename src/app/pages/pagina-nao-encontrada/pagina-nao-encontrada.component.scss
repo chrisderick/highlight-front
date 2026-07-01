@@ -1,0 +1,71 @@
+:host {
+	display: block;
+	min-height: calc(100dvh - 96px);
+}
+
+.paginaErro {
+	display: grid;
+	place-items: center;
+	min-height: calc(100dvh - 96px);
+	padding: 2rem 1rem;
+	background:
+		radial-gradient(circle at top left, rgba(74, 144, 226, 0.22), transparent 34%),
+		radial-gradient(circle at bottom right, rgba(137, 207, 240, 0.28), transparent 38%),
+		linear-gradient(180deg, rgba(255, 255, 255, 0.85), rgba(244, 249, 255, 0.95));
+}
+
+.cartaoErro {
+	width: min(100%, 640px);
+	padding: clamp(2rem, 4vw, 3.5rem);
+	border: 1px solid rgba(74, 144, 226, 0.16);
+	border-radius: 28px;
+	background: rgba(255, 255, 255, 0.82);
+	box-shadow: 0 24px 60px rgba(24, 66, 112, 0.12);
+	backdrop-filter: blur(12px);
+	text-align: center;
+}
+
+.etiquetaErro {
+	display: inline-flex;
+	margin: 0 0 1rem;
+	padding: 0.4rem 0.85rem;
+	border-radius: 999px;
+	background: rgba(74, 144, 226, 0.12);
+	color: var(--cor-secundaria);
+	font-size: 0.875rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.cartaoErro h2 {
+	margin: 0;
+	font-size: clamp(2rem, 5vw, 3.5rem);
+	line-height: 1.05;
+	color: var(--cor-texto, #102a43);
+}
+
+.descricaoErro {
+	max-width: 42rem;
+	margin: 1rem auto 0;
+	font-size: 1.05rem;
+	line-height: 1.7;
+	color: rgba(16, 42, 67, 0.78);
+}
+
+.acoesErro {
+	display: flex;
+	justify-content: center;
+	margin-top: 2rem;
+}
+
+@media (max-width: 640px) {
+	.cartaoErro {
+		padding: 1.75rem 1.25rem;
+		border-radius: 24px;
+	}
+
+	.descricaoErro {
+		font-size: 1rem;
+	}
+}
