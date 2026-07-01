@@ -4,6 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialog } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { RouterLink } from '@angular/router';
 import { firstValueFrom } from 'rxjs';
@@ -25,6 +26,7 @@ import { NotificacaoService } from '../../core/services/notificacao.service';
     MatButtonModule,
     MatCardModule,
     MatIconModule,
+    MatTooltipModule,
     MatProgressSpinnerModule,
     DataHoraBrPipe,
     BreadcrumbComponent,

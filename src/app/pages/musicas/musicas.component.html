@@ -27,10 +27,22 @@
             <mat-card-header>
               <mat-card-title>{{ musica.title }}</mat-card-title>
               <div class="acoesCartao">
-                <button mat-icon-button type="button" aria-label="Editar música" (click)="abrirModalEditarMusica(musica)">
+                <button
+                  mat-icon-button
+                  type="button"
+                  aria-label="Editar música"
+                  matTooltip="Editar música"
+                  (click)="abrirModalEditarMusica(musica)"
+                >
                   <mat-icon>edit</mat-icon>
                 </button>
-                <button mat-icon-button type="button" aria-label="Deletar música" (click)="confirmarExclusaoMusica(musica)">
+                <button
+                  mat-icon-button
+                  type="button"
+                  aria-label="Deletar música"
+                  matTooltip="Deletar música"
+                  (click)="confirmarExclusaoMusica(musica)"
+                >
                   <mat-icon>delete</mat-icon>
                 </button>
               </div>

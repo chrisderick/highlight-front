@@ -25,10 +25,22 @@
           <mat-card-header>
             <mat-card-title>{{ letra.language }}</mat-card-title>
             <div class="acoesCartao">
-              <button mat-icon-button type="button" aria-label="Editar letra" (click)="abrirModalEditarLetra(letra)">
+              <button
+                mat-icon-button
+                type="button"
+                aria-label="Editar letra"
+                matTooltip="Editar letra"
+                (click)="abrirModalEditarLetra(letra)"
+              >
                 <mat-icon>edit</mat-icon>
               </button>
-              <button mat-icon-button type="button" aria-label="Deletar letra" (click)="confirmarExclusaoLetra(letra)">
+              <button
+                mat-icon-button
+                type="button"
+                aria-label="Deletar letra"
+                matTooltip="Deletar letra"
+                (click)="confirmarExclusaoLetra(letra)"
+              >
                 <mat-icon>delete</mat-icon>
               </button>
             </div>

@@ -23,10 +23,22 @@
             <mat-card-header>
               <mat-card-title>{{ artista.name }}</mat-card-title>
               <div class="acoesCartao">
-                <button mat-icon-button type="button" aria-label="Editar artista" (click)="abrirModalEditarArtista(artista)">
+                <button
+                  mat-icon-button
+                  type="button"
+                  aria-label="Editar artista"
+                  matTooltip="Editar artista"
+                  (click)="abrirModalEditarArtista(artista)"
+                >
                   <mat-icon>edit</mat-icon>
                 </button>
-                <button mat-icon-button type="button" aria-label="Deletar artista" (click)="confirmarExclusaoArtista(artista)">
+                <button
+                  mat-icon-button
+                  type="button"
+                  aria-label="Deletar artista"
+                  matTooltip="Deletar artista"
+                  (click)="confirmarExclusaoArtista(artista)"
+                >
                   <mat-icon>delete</mat-icon>
                 </button>
               </div>
