@@ -22,22 +22,53 @@
 .cabecalhoConteudo {
 	max-width: 1200px;
 	margin: 0 auto;
-	padding: 1.5rem 1rem;
+	padding: 1.25rem 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
 }
 
-.cabecalhoConteudo h1 {
+.cabecalhoTexto {
+	min-width: 0;
+}
+
+.cabecalhoTexto h1 {
 	margin: 0;
 	font-size: clamp(1.75rem, 2.5vw, 2.35rem);
 	line-height: 1.2;
 }
 
-.cabecalhoConteudo p {
+.cabecalhoTexto p {
 	margin: 0.25rem 0 0;
 	opacity: 0.92;
+}
+
+.imagemCabecalho {
+	flex: 0 0 auto;
+	width: clamp(92px, 14vw, 160px);
+	height: auto;
+	max-height: 160px;
+	object-fit: contain;
+	filter: drop-shadow(0 18px 24px rgba(18, 38, 66, 0.24));
+	user-select: none;
+	pointer-events: none;
 }
 
 .conteudoPagina {
 	max-width: 1200px;
 	margin: 0 auto;
 	padding: 1rem;
+}
+
+@media (max-width: 720px) {
+	.cabecalhoConteudo {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.imagemCabecalho {
+		align-self: flex-end;
+		width: clamp(84px, 26vw, 132px);
+	}
 }
